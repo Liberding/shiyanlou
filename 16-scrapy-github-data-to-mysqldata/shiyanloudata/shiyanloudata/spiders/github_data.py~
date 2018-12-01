@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class GithubDataSpider(scrapy.Spider):
+    name = 'github_data'
+    allowed_domains = ['https://github.com']
+    start_urls = ['http://https://github.com/']
+
+    def parse(self, response):
+        pass
