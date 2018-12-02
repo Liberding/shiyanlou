@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+
+from sqlalchemy.orm import sessionmaker
+from shiyanloudata.models import Course, engine
+from datetime import datetime
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+def process_item(self, item, spider):
+        item['update_time'] = datetime.strptime(item['update_time'], '%Y-%m-%dT%H:%M:%SZ')
+        self.session.add(Course(**item))
+        return item
