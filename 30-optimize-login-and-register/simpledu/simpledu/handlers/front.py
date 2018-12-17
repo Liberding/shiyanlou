@@ -31,7 +31,7 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         if not form.username.data.isalnum():
-            flash('请', 'warning')
+            flash('请输入英文/数字格式', 'warning')
             return redirect(url_for('.register'))
         form.create_user()
         flash('register success', 'success')
